@@ -28,7 +28,7 @@ class EmployeeResults extends Component {
   handleInputChange = (event) => {
     const { name, value } = event.target;
     const filteredEmployees = this.state.employees.filter((employee) => {
-      return employee.nat.includes(value);
+      return employee.location.city.includes(value);
       // return employee.email.includes(value);
     });
 
@@ -55,7 +55,7 @@ class EmployeeResults extends Component {
           name="search"
           onChange={this.handleInputChange}
           type="text"
-          placeholder="search by country"
+          placeholder="search by city"
         />
         <div className="container-fluid">
           <div className="row">
@@ -71,8 +71,8 @@ class EmployeeResults extends Component {
                           <i className="fas fa-caret-down"></i>
                         </button>
                         <th>Phone#</th>
-                        <th>age</th>
-                        <th>Country</th>
+                        <th>Age</th>
+                        <th>City</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -97,7 +97,7 @@ class EmployeeResults extends Component {
                             </td>
                             <td>{results.dob.age}</td>
                             {/* <td>{results.city}</td> */}
-                            <td>{results.nat}</td>
+                            <td>{results.location.city}</td>
                           </tr>
                         );
                       })}
