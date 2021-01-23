@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import "./Table.css";
 
 class EmployeeResults extends Component {
   state = {
@@ -40,7 +39,7 @@ class EmployeeResults extends Component {
 
   handleButtonClick = () => {
     const sortedBy = this.state.filteredEmployees.sort((a, b) => {
-      return a.nat < b.nat ? -1 : 1;
+      return a.name.first < b.name.first ? -1 : 1;
     });
     this.setState({
       employees: sortedBy,
@@ -50,19 +49,17 @@ class EmployeeResults extends Component {
   render() {
     return (
       <div>
+        <input
+          value={this.state.search}
+          name="search"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="search names"
+        />
         <div className="row">
           <div className="col">
             <div className="text-center">
               <table className="table">
-                <thead>
-                  <tr>
-                    {/* <th scope="col">Employee Picture</th> */}
-
-                    {/* <th scope="col">CellPhone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Date of Birth</th> */}
-                  </tr>
-                </thead>
                 <table className="table">
                   <thead>
                     <tr>
@@ -71,7 +68,6 @@ class EmployeeResults extends Component {
                       <button onClick={this.handleButtonClick}>
                         <i className="fas fa-caret-down"></i>
                       </button>
-                      {/* <th>Last Name</th> */}
                       <th>Email</th>
                       <th>Phone</th>
                       <th>City</th>
