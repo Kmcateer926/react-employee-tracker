@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import API from './utils/API';
 import axios from "axios";
-// import Table from "./Table";
+import Table from "./Table";
 
 class EmployeeResults extends Component {
   state = {
@@ -47,40 +47,51 @@ class EmployeeResults extends Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-sm-12">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">
-                    <h2>Image</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>First Name</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>Last Name</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>Email</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>Age</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>Gender</h2>
-                  </th>
-                  <th scope="col">
-                    <h2>Country</h2>
-                  </th>
-                </tr>
-              </thead>
-            </table>
+        <div>
+          <div className="row">
+            <div className="col">
+              <div className="text-center">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Employee Picture</th>
+                      {/* <th scope="col" onClick={sortBy}>
+                        Name
+                      </th> */}
+                      <th scope="col">Phone</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Date of Birth</th>
+                    </tr>
+                  </thead>
+                  <table className="table">
+                <thead>
+                  <tr>
+                    <th>Photo</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>City</th>
+                  </tr>
+                </thead>
+                {[...this.state.employees].map((item) => (
+                  <Table
+                    picture={item.picture}
+                    firstName={item.firstName}
+                    lastName={item.lastName}
+                    email={item.email}
+                    phone={item.phone}
+                    city={item.city}
+                    key={item.key}
+                  />
+                ))}
+              </table>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
   }
 }
 
