@@ -1,11 +1,8 @@
-
+import React from 'react';
+import EmployeeResults from "./componenets/EmployeeResults"
 
 function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+  return <EmployeeResults/>;
 }
 
 export default App;
