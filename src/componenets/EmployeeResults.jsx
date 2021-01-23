@@ -58,7 +58,7 @@ class EmployeeResults extends Component {
                       {/* <th scope="col" onClick={sortBy}>
                         Name
                       </th> */}
-                      <th scope="col">Phone</th>
+                      <th scope="col">CellPhone</th>
                       <th scope="col">Email</th>
                       <th scope="col">Date of Birth</th>
                     </tr>
