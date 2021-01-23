@@ -1,8 +1,13 @@
-import React from 'react';
-import EmployeeResults from "./components/EmployeeResults/EmployeeResults"
-
+import React from "react";
+import EmployeeResults from "./components/EmployeeResults/EmployeeResults";
+// import SearchResults from "./components/SearchResults/SearchResults";
 function App() {
-  return (<EmployeeResults/>);
+  return (
+    <>
+      {/* <SearchResults /> */}
+      <EmployeeResults />
+    </>
+  );
 }
 
 export default App;

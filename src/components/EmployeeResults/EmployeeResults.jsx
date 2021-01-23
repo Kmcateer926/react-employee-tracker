@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./EmployeeResults.css";
 
 class EmployeeResults extends Component {
   state = {
@@ -13,7 +14,7 @@ class EmployeeResults extends Component {
 
   getEmployees = () => {
     axios
-      .get("https://randomuser.me/api/?results=20")
+      .get("https://randomuser.me/api/?results=30")
       .then((response) => {
         this.setState({
           employees: response.data.results,
@@ -66,10 +67,11 @@ class EmployeeResults extends Component {
                     <thead>
                       <tr>
                         <th>Photo</th>
-                        <th>Name</th>{" "}
-                        <button onClick={this.handleButtonClick}>
+                        <th>Name:First<button onClick={this.handleButtonClick}>
                           <i className="fas fa-caret-down"></i>
-                        </button>
+                        </button></th>{" "}
+                        
+                        <th>Last</th>
                         <th>Phone#</th>
                         <th>Age</th>
                         <th>City</th>
