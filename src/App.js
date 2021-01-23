@@ -1,5 +1,5 @@
 import React from 'react';
-import EmployeeResults from "./components/EmployeeResults"
+import EmployeeResults from "./components/EmployeeResults/EmployeeResults"
 
 function App() {
   return (<EmployeeResults/>);
