@@ -5,7 +5,7 @@ import "./EmployeeResults.css";
 class EmployeeResults extends Component {
   state = {
     employees: [],
-    filteredEmployees: [],
+    filterEmployees: [],
     search: "",
   };
   componentDidMount() {
@@ -18,7 +18,7 @@ class EmployeeResults extends Component {
       .then((response) => {
         this.setState({
           employees: response.data.results,
-          filteredEmployees: response.data.results,
+          filterEmployees: response.data.results,
         });
       })
       .catch((err) => {
@@ -28,19 +28,18 @@ class EmployeeResults extends Component {
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    const filteredEmployees = this.state.employees.filter((employee) => {
+    const filterEmployees = this.state.employees.filter((employee) => {
       return employee.location.city.includes(value);
-      // return employee.email.includes(value);
     });
 
     this.setState({
       [name]: value,
-      filteredEmployees: filteredEmployees,
+      filterEmployees: filterEmployees,
     });
   };
 
   handleButtonClick = () => {
-    const sortedBy = this.state.filteredEmployees.sort((a, b) => {
+    const sortedBy = this.state.filterEmployees.sort((a, b) => {
       return a.name.first < b.name.first ? -1 : 1;
     });
     this.setState({
@@ -67,10 +66,12 @@ class EmployeeResults extends Component {
                     <thead>
                       <tr>
                         <th>Photo</th>
-                        <th>Name:First<button onClick={this.handleButtonClick}>
-                          <i className="fas fa-caret-down"></i>
-                        </button></th>{" "}
-                        
+                        <th>
+                          Name:First
+                          <button onClick={this.handleButtonClick}>
+                            <i className="fas fa-caret-down"></i>
+                          </button>
+                        </th>{" "}
                         <th>Last</th>
                         <th>Phone#</th>
                         <th>Age</th>
@@ -78,7 +79,7 @@ class EmployeeResults extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.filteredEmployees.map((results) => {
+                      {this.state.filterEmployees.map((results) => {
                         return (
                           <tr>
                             <th scope="row">
@@ -88,17 +89,10 @@ class EmployeeResults extends Component {
                                 alt="thumbnail"
                               />
                             </th>
-                            <td key={results.login.uuid}>
-                              {results.name.first}
-                            </td>
+                            <td>{results.name.first}</td>
                             <td>{results.name.last}</td>
-                            <td>
-                              <a href="mailto::{results.name.phone}">
-                                {results.phone}
-                              </a>
-                            </td>
+                            <td>{results.phone}</td>
                             <td>{results.dob.age}</td>
-                            {/* <td>{results.city}</td> */}
                             <td>{results.location.city}</td>
                           </tr>
                         );
