@@ -73,6 +73,7 @@ class EmployeeResults extends Component {
                           </button>
                         </th>{" "}
                         <th>Last</th>
+                        <th>Email</th>
                         <th>Phone#</th>
                         <th>Age</th>
                         <th>City</th>
@@ -91,6 +92,11 @@ class EmployeeResults extends Component {
                             </th>
                             <td>{results.name.first}</td>
                             <td>{results.name.last}</td>
+                            <td>
+                              <a href="mailto::{results.name.email}">
+                                {results.email}
+                              </a>
+                            </td>
                             <td>{results.phone}</td>
                             <td>{results.dob.age}</td>
                             <td>{results.location.city}</td>
