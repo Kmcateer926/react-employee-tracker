@@ -25,7 +25,7 @@
   ### Test Instructions
   
   ### Installation
-  you can use my repo at https://github.com/Kmcateer926/fitness-tracker, copy files and install dependancies
+  you can use my repo at https://github.com/Kmcateer926/react-employee-tracker, copy files and install dependancies
   ### Usage
   this shows you 35 employees.  You can filter employees in the search bar or place them in alphabetical order with the button
   ### Technology
